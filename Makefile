@@ -10,6 +10,11 @@ GO_FILES := $(shell find $(shell go list -f '{{.Dir}}' $(GO_PACKAGES)) -name \*.
 
 GIT = git
 
+yopo:
+	build/env.sh go run build/ci.go install ./cmd/yopo
+	@echo "Done building."
+	@echo "Run \"$(GOBIN)/yopo\" to launch yopo."
+
 tomo:
 	build/env.sh go run build/ci.go install ./cmd/tomo
 	@echo "Done building."
